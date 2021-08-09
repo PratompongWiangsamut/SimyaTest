@@ -71,7 +71,12 @@ export default class Input extends Component {
          console.log('odduserID: ',topbanana[0].uid)
          if(this.state.uId!==null&&!topbanana.some((val)=>val.uid==this.state.uId)){
            console.log('val.uid',!topbanana.some((val)=>val.uid==this.state.uId))
-            topbanana[9]= storeU.find((val)=>val.uid==this.state.uId);
+           if(storeU.some((check)=>check.uid==this.state.uId)){
+
+             topbanana[9]= storeU.find((val)=>val.uid==this.state.uId);
+           }else{
+            alert('UserID is not in list!');
+           }
          }
          console.log("top: ",topbanana);
         this.setState({bananaList:topbanana})
